@@ -1,4 +1,5 @@
-interface Data {
+let rl = require("readline-sync")
+export interface Data {
     constructor(dia: number, mes: number, ano: number);
     compara(outraData: Data): void;
     getDia(): void;
@@ -9,7 +10,7 @@ interface Data {
     clone(): void;
 }
 
-class Data implements Data{
+export class Data implements Data{
     dia: number
     mes: number
     ano: number;
@@ -79,6 +80,15 @@ class Data implements Data{
     }
     getAno():void{
         console.log(`o ano é ${this.ano}`)
+    }
+    setData():void{
+        let diaNovo = Number(rl.question("fale o novo dia"))
+        let mesNovo = Number(rl.question("fale o novo mes"))
+        let anoNovo = Number(rl.question("fale o novo ano"))
+        this.dia = diaNovo      
+        this.mes = mesNovo
+        this.ano = anoNovo
+
     }
     isBissexto(): void{
         if (this.ano%400 == 0){

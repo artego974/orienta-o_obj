@@ -1,10 +1,10 @@
-interface Aluno {
+export interface Aluno {
     constructor(matricula: number, nome: string, notaProva1: number, notaProva2: number, notaTrabalho: number);
     media(): number;
     final(): number;
 }
 
-class Aluno implements Aluno {
+export class Aluno implements Aluno {
     matricula: number
     nome: string
     notaProva1: number
@@ -26,5 +26,7 @@ class Aluno implements Aluno {
         return ntFinal
     }
 }
+
+
 let alunin = new Aluno(91,'pedrin',1,10,7)
 console.log(alunin)
