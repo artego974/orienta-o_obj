@@ -1,19 +1,19 @@
 let rl = require("readline-sync")
 export interface Data {
-    constructor(dia: number, mes: number, ano: number);
-    compara(outraData: Data): void;
-    getDia(): void;
-    getMes(): void;
-    getMesExtenso(): void;
-    getAno(): void;
-    isBissexto(): void;
-    clone(): void;
+    constructor(dia: number, mes: number, ano: number)
+    compara(outraData: Data): void
+    getDia(): void
+    getMes(): void
+    getMesExtenso(): void
+    getAno(): void
+    isBissexto(): void
+    clone(): void
 }
 
 export class Data implements Data{
     dia: number
     mes: number
-    ano: number;
+    ano: number
    
     constructor(dia: number, mes: number, ano: number) {
         this.dia = dia
@@ -23,78 +23,77 @@ export class Data implements Data{
     }
     compara():void{
         if(data1 == data2){
-            console.log("data 1 e data 2 são iguais")
+            console.log("Data 1 e data 2 são iguais")
         }else{
-            console.log("as datas são diferentes")
+            console.log("As datas são diferentes")
         }
     }
     getDia():void{
         console.log(`O dia é ${this.dia}`)
     }
     getMesN():void{
-        console.log(` o mês é ${this.mes}`)
+        console.log(`O mês é ${this.mes}`)
     }
     getMesEx():void{
         switch (this.mes) {
                 case 1:
-                console.log("janeiro")
+                console.log("Janeiro")
                 break;
                 case 2:
-                console.log("fevereiro")
+                console.log("Fevereiro")
                 break;
                 case 3:
-                console.log("março")
+                console.log("Março")
                 break;
                 case 4:
-                console.log("abril")
+                console.log("Abril")
                 break;
                 case 5:
-                console.log("maio")
+                console.log("Maio")
                 break;
                 case 6:
-                console.log("junho")
+                console.log("Junho")
                 break;
                 case 7:
-                console.log("julho")
+                console.log("Julho")
                 break;
                 case 8:
-                console.log("agosto")
+                console.log("Agosto")
                 break;
                 case 9:
-                console.log("setembro")
+                console.log("Setembro")
                 break;
                 case 10:
-                console.log("outubro")
+                console.log("Outubro")
                 break;
                 case 11:
-                console.log("novembro")
+                console.log("Novembro")
                 break;
                 case 12:
-                console.log("dezembro")
+                console.log("Dezembro")
                 break;
         
             default:
-                console.log("mês invalido")
+                console.log("Mês invalido")
                 break;
         }
     }
     getAno():void{
-        console.log(`o ano é ${this.ano}`)
+        console.log(`O ano é ${this.ano}`)
     }
-    setData():void{
-        let diaNovo = Number(rl.question("fale o novo dia"))
-        let mesNovo = Number(rl.question("fale o novo mes"))
-        let anoNovo = Number(rl.question("fale o novo ano"))
+    setData():any{
+        let diaNovo = Number(rl.question("Fale o novo dia"))
+        let mesNovo = Number(rl.question("Fale o novo mes"))
+        let anoNovo = Number(rl.question("Fale o novo ano"))
         this.dia = diaNovo      
         this.mes = mesNovo
         this.ano = anoNovo
-
     }
     isBissexto(): void{
-        if (this.ano%400 == 0){
-            console.log("ano bissexto")
+        if (this.ano % 400 == 0){
+            console.log("Ano bissexto")
         }else{
-            console.log("ano normal")
+            console.log("Ano normal")
         }
     }
     clone(): Data{

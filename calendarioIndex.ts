@@ -3,6 +3,7 @@ let rl = require("readline-sync")
 let menu = true
 let novaData = new Data(0,0,0)
 let n = false
+let datas = []
 while (menu == true ){
     let men = Number(rl.question(`
     1)Criar a data
@@ -13,7 +14,7 @@ while (menu == true ){
     `))
     switch (men) {
         case 1:
-            
+            novaData.setData()
             break;
         case 2:
             
