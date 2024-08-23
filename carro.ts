@@ -12,7 +12,7 @@ export class Carro {
 
 
     andar():void {
-        let distancia = leitor.question('Qual a Distancia que o seu carro vai percorrer? ')
+        let distancia = leitor.questionint('Qual a Distancia que o seu carro vai percorrer? ')
         let combustivel = this.Tanque - (this.KM / distancia)
         if (this.Tanque >= combustivel){
             this.Tanque = combustivel
@@ -27,15 +27,15 @@ export class Carro {
     }
  
     adicionarGasolina(){
-        let adicionar = leitor.question('Quanto de Gasolina voce deseja adicionar? ')
+        let adicionar = leitor.questionint('Quanto de Gasolina voce deseja adicionar? ')
         this.Tanque += adicionar
         console.log(`Voce possui atualmente ${this.Tanque} de gasolina. `)    
     }
    
     Carro10(): void{
-        let tanque = leitor.question('Quanto de tanque o seu carrinho consegue consumir? ')
-        let KM = leitor.question(`Quanto de KM o seu carrinho vai percorrer? `)
-        let marca = leitor.question(`Qual a marca do seu carrinho? `)
+        let tanque = leitor.questionint('Quanto de tanque o seu carrinho consegue consumir? ')
+        let KM = leitor.questionint(`Quanto de KM o seu carrinho vai percorrer? `)
+        let marca = leitor.questionint(`Qual a marca do seu carrinho? `)
         this.Tanque = tanque
         this.KM = KM
         this.Marca = marca

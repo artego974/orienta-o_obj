@@ -1,8 +1,15 @@
 let rl = require("readline-sync")
-class Jogo {
+export interface jogointer{
+    titulo:string
+    genero:string
+    classificacao:number
+    get():void
+    set():void
+}
+export class Jogo implements jogointer {
     public titulo:string
-    protected genero:string
-    protected classificacao:number
+     genero:string
+     classificacao:number
     constructor(titulo:string,genero:string,classificacao:number) {
         this.titulo = titulo
         this.genero = genero
@@ -12,9 +19,13 @@ class Jogo {
     get():void{
         console.log(`o titulo do jogo é ${this.titulo} e o genero é ${this.genero} e sua classificação é de ${this.classificacao} anos.`)
     }
+    set():void{
+        this.titulo = rl.question("qual o titulo do jogo? ")
+        this.genero = rl.question("qual o genero do jogo?")
+        this.classificacao = Number(rl.question("qual a classificação do jogo? "))
+    }
 }
-
-class jogoEletronico extends Jogo{
+export class jogoEletronico extends Jogo{
      private plataforma:string
     super(titulo:string, genero:string, classificacao:number,plataforma:string){
     }
@@ -22,7 +33,7 @@ class jogoEletronico extends Jogo{
         console.log(`o titulo é ${this.titulo} o genero é ${this.genero} e a classificação é ${this.classificacao} e sua platamorma é ${this.plataforma}`)
     }
 }
-class jogoTabauleiro extends Jogo{
+export class jogoTabauleiro extends Jogo{
     private numeroJogadores: number
     super(titulo:string, genero:string, classificacao:number,numeroJogadores:number){
     }
@@ -31,21 +42,3 @@ class jogoTabauleiro extends Jogo{
     }
 }
 
-class bibliotecaDeJogos {
-    jogos: Jogo[]
-
-   
-    addJogo(jogo):void{
-        this.jogos.push(jogo)
-    }
-    rmJogo(jogo):void{
-        this.getJogos()
-        let nomeremovido = rl.question("qual jogo deseja remover")
-        this.jogos = this.jogos.filter(jogo => jogo.titulo !== nomeremovido)
-    }
-    getJogos():void{
-        for(let jogo of this.jogos){
-            jogo.get()
-            }
-        }
-    }
